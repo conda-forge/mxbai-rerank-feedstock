@@ -1,5 +1,5 @@
 context:
-  version: 0.1.1
+  version: "0.1.3"
   python_min: "3.10"
 
 package:
@@ -7,8 +7,8 @@ package:
   version: ${{ version }}
 
 source:
-- url: https://pypi.org/packages/source/m/mxbai-rerank/mxbai_rerank-${{ version }}.tar.gz
-  sha256: 6828ff7a0ec5822ed67f4d7c7a0986d6a8f30b5ab02de71794b032ff420c9b08
+  - url: https://pypi.org/packages/source/m/mxbai-rerank/mxbai_rerank-${{ version }}.tar.gz
+    sha256: c32846e743a8d29d2480fc1ff953275923eb0a54612e9d9fd405c80b0298e8e2
 
 build:
   number: 0
@@ -17,24 +17,24 @@ build:
 
 requirements:
   host:
-  - python ${{ python_min }}.*
-  - setuptools >=61.0
-  - pip
+    - python ${{ python_min }}.*
+    - setuptools >=61.0
+    - pip
   run:
-  - python >=${{ python_min }}
-  - transformers >=4.49.0
-  - pytorch >=2.0.0
-  - numpy >=1
-  - batched >=0.1.4
-  - tqdm >=4.67.1
-  - accelerate >=1.5.1
+    - python >=${{ python_min }}
+    - transformers >=4.49.0
+    - pytorch >=2.0.0
+    - numpy >=1
+    - batched >=0.1.4
+    - tqdm >=4.67.1
+    - accelerate >=1.5.1
 
 tests:
-- python:
-    imports:
-    - mxbai_rerank
-    python_version: ${{ python_min }}
-    pip_check: true
+  - python:
+      imports:
+        - mxbai_rerank
+      python_version: ${{ python_min }}
+      pip_check: true
 
 about:
   summary: Crispy reranking models from Mixedbread.
